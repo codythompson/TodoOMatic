@@ -1,29 +1,17 @@
-insert into listomatic.item_type
-(item_type_name, item_type_descr)
+insert into status
+(status_name, status_descr)
 values
-('Plain',
-"Just a simple list.");
+('Active',
+"Visible to you and any others that this has been shared with.");
 
-insert into listomatic.item_type
-(item_type_name, item_type_descr)
+insert into status
+(status_name, status_descr)
 values
-('Shopping-List',
-"A 'Shopping-List' style list with checkboxes indicating whether or not an item was put in a cart, and an optional quantity field.");
+('Hidden/Ignored',
+"Not visible to anyone.");
 
-insert into listomatic.item_type
-(item_type_name, item_type_descr)
+insert into status
+(status_name, status_descr)
 values
-('TO-DO Boolean',
-"A simple TO-DO list with checkboxes indicating whether or not an item on your list has been completed.");
-
-insert into listomatic.item_type
-(item_type_name, item_type_descr)
-values
-('TO-DO Percentage',
-"A TO-DO list where TO-DO items can be 0% to 100% complete.");
-
-insert into listomatic.item_type
-(item_type_name, item_type_descr)
-values
-('TO-DO Hours-Worked',
-"A TO-DO list where for each task you specify how many hour a task will take to complete, and how many hours you have worked on the task.");
+('Active-Public',
+"Visible to anybody on the internet.");
