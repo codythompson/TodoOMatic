@@ -1,24 +1,17 @@
-insert into list_o_matic.item_type
-(item_type_name)
+insert into status
+(status_name, status_descr)
 values
-("Shopping-List");
+('Active',
+"Visible to you and any others that this has been shared with.");
 
-insert into list_o_matic.item_type
-(item_type_name)
+insert into status
+(status_name, status_descr)
 values
-("TO-DO Boolean");
+('Hidden/Ignored',
+"Not visible to anyone.");
 
-insert into list_o_matic.item_type
-(item_type_name)
+insert into status
+(status_name, status_descr)
 values
-("TO-DO Percentage");
-
-insert into list_o_matic.item_type
-(item_type_name)
-values
-("TO-DO Hours-Worked");
-
-insert into list_o_matic.item_type
-(item_type_name)
-values
-('Plain');
+('Active-Public',
+"Visible to anybody on the internet.");
