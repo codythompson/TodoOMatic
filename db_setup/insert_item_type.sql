@@ -17,3 +17,8 @@ insert into list_o_matic.item_type
 (item_type_name)
 values
 ("TO-DO Hours-Worked");
+
+insert into list_o_matic.item_type
+(item_type_name)
+values
+('Plain');
