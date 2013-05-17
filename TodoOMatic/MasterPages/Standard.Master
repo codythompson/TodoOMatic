@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Standard.master.cs" Inherits="TodoOMatic.MasterPages.Standard" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- styles and scripts from Standard.Master -->
+    <link rel="stylesheet" href="/styles/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/bootstrap-responsive.css" type="text/css" />
+    <script src="/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <form id="aspTopForm" runat="server">
+    <div class="row-fluid">
+        <div class="span4 title title-left">
+            <div class="row-fluid">
+                <div class="span6"><a href="">option 1</a></div>
+                <div class="span6"><a href="">option 2</a></div>
+            </div>
+        </div>
+        <div class="span4 title title-center">
+            <h1>ToDo - O - mAtIc</h1>
+        </div>
+        <div class="span4 title title-right">
+            <div class="row-fluid">
+                <div class="span6"><a href="">option 3</a></div>
+                <div class="span6"><a href="">option 4</a></div>
+            </div>
+        </div>
+    </div>
+            <asp:ContentPlaceHolder ID="StandardMasterContent" runat="server">
+        
+            </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

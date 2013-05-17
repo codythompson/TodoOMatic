@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Web
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoOMatic", "TodoOMatic\TodoOMatic.csproj", "{8EDFB8AE-76D9-4CF7-A55A-8BD923E92999}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoOMaticDataAccess", "TodoOMaticDataAccess\TodoOMaticDataAccess.csproj", "{205D6234-28A7-4AE2-B0B7-CA9469454EAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{8EDFB8AE-76D9-4CF7-A55A-8BD923E92999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EDFB8AE-76D9-4CF7-A55A-8BD923E92999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EDFB8AE-76D9-4CF7-A55A-8BD923E92999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205D6234-28A7-4AE2-B0B7-CA9469454EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205D6234-28A7-4AE2-B0B7-CA9469454EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205D6234-28A7-4AE2-B0B7-CA9469454EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205D6234-28A7-4AE2-B0B7-CA9469454EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
