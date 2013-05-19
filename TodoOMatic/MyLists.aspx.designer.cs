@@ -10,24 +10,15 @@
 namespace TodoOMatic {
     
     
-    public partial class test {
+    public partial class MyLists {
         
         /// <summary>
-        /// form1 control.
+        /// myListsUserLists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
-        /// testPageUserLists control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::TodoOMatic.UserControls.UserLists testPageUserLists;
+        protected global::TodoOMatic.UserControls.UserLists myListsUserLists;
     }
 }

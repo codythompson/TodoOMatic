@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TodoOMatic {
+namespace TodoOMatic.UserControls {
     
     
-    public partial class test {
+    public partial class UserLists {
         
         /// <summary>
-        /// form1 control.
+        /// userListsView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Repeater userListsView;
         
         /// <summary>
-        /// testPageUserLists control.
+        /// userListsNotLoggedIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TodoOMatic.UserControls.UserLists testPageUserLists;
+        protected global::System.Web.UI.WebControls.Panel userListsNotLoggedIn;
+        
+        /// <summary>
+        /// userListsLoginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink userListsLoginButton;
     }
 }

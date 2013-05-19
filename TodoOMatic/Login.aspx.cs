@@ -15,7 +15,10 @@ namespace TodoOMatic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TestPopulate();
+            if (!IsPostBack)
+            {
+                TestPopulate();
+            }
         }
 
         public void TestPopulate()

@@ -9,15 +9,15 @@ namespace TodoOMaticDataAccess
 {
     public static class DataAccess
     {
+        public const int ActiveStatusId = 1;
+
         public static DataTable GetUsersLists(DatabaseObject dbo, int userId, int listStatusId)
         {
             string query = @"use " + dbo.DBName + ";";
             query += @"
-                select l.* from user_list ul
-                left join list l
-                    on ul.list_id = l.list_id
-                where ul.list_status_id = @listStat
-                    and ul.user_id = @userId;
+                select * from view_user_lists vul
+                where vul.user_id = @userId
+	                and vul.list_status_id = @listStat;
             ";
 
             return dbo.Select(query, new SqlParameter("@userId", userId),
