@@ -10,33 +10,42 @@
 namespace TodoOMatic {
     
     
-    public partial class test {
+    public partial class Login {
         
         /// <summary>
-        /// form1 control.
+        /// testUsersDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.DropDownList testUsersDropdown;
         
         /// <summary>
-        /// listDropDown control.
+        /// testUserSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList listDropDown;
+        protected global::System.Web.UI.WebControls.Button testUserSubmit;
         
         /// <summary>
-        /// listInfoLabel control.
+        /// loginErroMessagePnl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label listInfoLabel;
+        protected global::System.Web.UI.WebControls.Panel loginErroMessagePnl;
+        
+        /// <summary>
+        /// loginErrorMessageLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label loginErrorMessageLbl;
     }
 }

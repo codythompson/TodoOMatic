@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    Ello
+        <asp:DropDownList ID="listDropDown" runat="server" OnSelectedIndexChanged="listDropDown_SelectedIndexChanged" />
+        <asp:Label ID="listInfoLabel" runat="server" />
     </div>
     </form>
 </body>
