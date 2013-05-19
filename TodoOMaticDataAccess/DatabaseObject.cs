@@ -11,7 +11,7 @@ namespace TodoOMaticDataAccess
     {
         private const string _localConnString = "Data Source=MUSEBOXN\\SQLEXPRESS;Initial Catalog=listomatic;Integrated Security=True";
         private const string _localDbName = "listomatic";
-        private const string _goDadConnString = "Data Source=listomaticSQL.db.11106559.hostedresource.com; Initial Catalog=listomaticSQL; User ID=listomaticSQL; Password=T216h4o8m@blah;";
+        private const string _goDadConnString = "";
         private const string _goDadDbName = "listomaticSQL";
 
         public SqlConnection connection;
