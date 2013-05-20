@@ -59,6 +59,7 @@
     <Compile Include="DatabaseObject.cs" />
     <Compile Include="MySqlDatabaseObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TodoItem.cs" />
     <Compile Include="TodoUser.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>

@@ -56,15 +56,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="List.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MyLists.aspx" />
+    <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="styles\bootstrap-responsive.css" />
     <Content Include="styles\bootstrap.css" />
     <Content Include="styles\colors.css" />
     <Content Include="styles\MasterPages\standardMaster.css" />
+    <Content Include="styles\UserControls\ListItems.css" />
     <Content Include="styles\UserControls\UserLists.css" />
     <Content Include="test.aspx" />
+    <Content Include="UserControls\ListItem.ascx" />
+    <Content Include="UserControls\ListItems.ascx" />
     <Content Include="UserControls\UserLists.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -77,6 +82,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -106,6 +118,20 @@
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ListItem.ascx.cs">
+      <DependentUpon>ListItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ListItem.ascx.designer.cs">
+      <DependentUpon>ListItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ListItems.ascx.cs">
+      <DependentUpon>ListItems.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ListItems.ascx.designer.cs">
+      <DependentUpon>ListItems.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserLists.ascx.cs">
       <DependentUpon>UserLists.ascx</DependentUpon>

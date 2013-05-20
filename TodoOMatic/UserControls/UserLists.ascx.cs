@@ -29,21 +29,21 @@ namespace TodoOMatic.UserControls
 
             if (_user == null)
             {
-                PopulateError();
+                PopulateNotAuthed();
             }
         }
 
-        public void Populate()
+        private void Populate()
         {
             //maybe down the road change this to be set from a dropdown or something
-            int statusId = DataAccess.ActiveStatusId;
+            int statusId = DataAccess.StatusActiveId;
             DatabaseObject dbo = Utils.GetDBO(Request);
             DataTable dt = DataAccess.GetUsersLists(dbo, _user.UserId, statusId);
             userListsView.DataSource = dt;
             userListsView.DataBind();
         }
 
-        public void PopulateError()
+        private void PopulateNotAuthed()
         {
             userListsView.Visible = false;
             userListsNotLoggedIn.Visible = true;
@@ -53,6 +53,8 @@ namespace TodoOMatic.UserControls
         protected void userListsView_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             DataRowView dr = e.Item.DataItem as DataRowView;
+            (e.Item.FindControl("userListLink") as HyperLink).NavigateUrl = "../" + 
+                List.ListFileName + "?" + ListItems.ListIdQSKey + "=" + dr["list_id"].ToString();
             (e.Item.FindControl("userListName") as Label).Text = dr["list_name"].ToString();
             (e.Item.FindControl("userListType") as Label).Text = dr["item_type_name"].ToString();
         }
