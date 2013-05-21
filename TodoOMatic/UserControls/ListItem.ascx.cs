@@ -11,7 +11,9 @@ namespace TodoOMatic.UserControls
 {
     public partial class ListItem : System.Web.UI.UserControl
     {
-        private const string ItemVSKey = "ItemId";
+        private const string ItemIdVSKey = "ItemId";
+        private const string ItemCompleteVSKey = "ItemComplete";
+        private const string ItemTypeVSKey = "ItemType";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +23,9 @@ namespace TodoOMatic.UserControls
         {
             TodoItem item = new TodoItem(itemInfo);
 
-            ViewState[ItemVSKey] = item.ItemId;
+            ViewState[ItemIdVSKey] = item.ItemId;
+            ViewState[ItemCompleteVSKey] = item.Completed;
+            ViewState[ItemTypeVSKey] = item.Type;
 
             listItemName.Text = item.Name;
 
@@ -30,13 +34,12 @@ namespace TodoOMatic.UserControls
                 case TodoItemType.Plain:
                     break;
                 case TodoItemType.Shopping:
-                    listItemInCart.Visible = true;
-                    listItemInCartCheckbox.Visible = true;
+                    listItemInCartPnl.Visible = true;
                     listItemQtyPnl.Visible = true;
                     if (item.Completed)
                     {
-                        listItemInCartCheckboxImg.Src = "~/styles/images/checkbox-checked.png";
-                        listItemInCartCheckboxImg.Alt = "In Cart";
+                        listItemInCartCheckboxImg.Visible = false;
+                        listItemInCartCheckboxImgChecked.Visible = true;
                     }
                     int qty = item.Quantity;
                     if (qty <= 0)
@@ -50,8 +53,8 @@ namespace TodoOMatic.UserControls
                     listItemCompletedCheckbox.Visible = true;
                     if (item.Completed)
                     {
-                        listItemCompletedCheckboxImg.Src = "~/styles/images/checkbox-checked.png";
-                        listItemCompletedCheckboxImg.Alt = "Completed";
+                        listItemCompletedCheckboxImg.Visible = false;
+                        listItemCompletedCheckboxImgChecked.Visible = true;
                     }
                     break;
             }
@@ -62,17 +65,37 @@ namespace TodoOMatic.UserControls
             //TODO validation!
             string newName = HttpUtility.HtmlEncode(listItemEditName.Text);
 
-            int itemId = (int)ViewState[ItemVSKey];
+            int itemId = (int)ViewState[ItemIdVSKey];
 
             listItemName.Text = newName;
 
+            //TODO make sure it actually made it into the database
             DatabaseObject dbo = Utils.GetDBO(Request);
             DataAccess.ChangeItemName(dbo, newName, itemId);
         }
 
         protected void listItemCompleted_Click(object sender, EventArgs e)
         {
+            int itemId = (int)ViewState[ItemIdVSKey];
+            bool isComplete = !(bool)ViewState[ItemCompleteVSKey];
+            ViewState[ItemCompleteVSKey] = isComplete;
+            TodoItemType type = (TodoItemType)ViewState[ItemTypeVSKey];
 
+            DatabaseObject dbo = Utils.GetDBO(Request);
+            // TODO make sure it actually made it into the database
+            int rowsAffected = DataAccess.ChangeItemCompletion(dbo, itemId, isComplete);
+
+            switch (type)
+            {
+                case TodoItemType.Shopping:
+                    listItemInCartCheckboxImg.Visible = !isComplete;
+                    listItemInCartCheckboxImgChecked.Visible = isComplete;
+                    break;
+                case TodoItemType.Boolean:
+                    listItemCompletedCheckboxImg.Visible = !isComplete;
+                    listItemCompletedCheckboxImgChecked.Visible = isComplete;
+                    break;
+            }
         }
 
         protected void listItemDelete_Click(object sender, EventArgs e)

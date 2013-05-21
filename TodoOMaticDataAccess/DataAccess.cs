@@ -69,5 +69,31 @@ namespace TodoOMaticDataAccess
             return dbo.NonQuery(query, new SqlParameter("@newName", newName),
                 new SqlParameter("@itemId", itemId));
         }
+
+        public static int ChangeItemCompletion(DatabaseObject dbo, int itemId, bool complete)
+        {
+            string query = @"use " + dbo.DBName + ";";
+            if (complete)
+            {
+                query += @"
+                    update item
+                    set item_amount_completed = 
+	                    (select item_total_to_complete
+	                    from item i
+	                    where i.item_id = @itemId)
+                    where item_id = @itemId;
+                ";
+            }
+            else
+            {
+                query += @"
+                    update item
+                    set item_amount_completed = 0
+                    where item_id = @itemId;
+                ";
+            }
+
+            return dbo.NonQuery(query, new SqlParameter("@itemId", itemId));
+        }
     }
 }

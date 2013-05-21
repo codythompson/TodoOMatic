@@ -7,26 +7,33 @@
         </div>
         <div class="btn-group span4">
             <!-- Shopping List -->
-            <div class="btn btn-info span7 row-fluid">
-                <asp:LinkButton ID="listItemInCart" runat="server" Visible="false" CssClass="span6">
+            <asp:Panel ID="listItemInCartPnl" runat="server" Visible="false" CssClass="btn-group span7 row-fluid">
+                <asp:LinkButton ID="listItemInCart" runat="server" CssClass="btn btn-info span6 left"
+                    OnClick="listItemCompleted_Click">
                     In Cart?
                 </asp:LinkButton>
-                <asp:LinkButton ID="listItemInCartCheckbox" runat="server" Visible="false" CssClass="span6">
-                    <img ID="listItemInCartCheckboxImg" runat="server" src="~/styles/images/checkbox.png" alt="Not in cart" />
+                <asp:LinkButton ID="listItemInCartCheckbox" runat="server" CssClass="btn btn-info span6 right"
+                    OnClick="listItemCompleted_Click" >
+                    <asp:Image ID="listItemInCartCheckboxImg" runat="server" ImageUrl="~/styles/images/checkbox.png" AlternateText="Not in cart" />
+                    <asp:Image ID="listItemInCartCheckboxImgChecked" runat="server" Visible="false"
+                        ImageUrl="~/styles/images/checkbox-checked.png" AlternateText="In cart" />
                 </asp:LinkButton>
-            </div>
-            <asp:Panel ID="listItemQtyPnl" runat="server" Visible="false" CssClass="btn btn-info span5 row-fluid">
-                <asp:LinkButton ID="listItemQty" runat="server" Text="Qty: " CssClass="span12" />
+            </asp:Panel>
+            <asp:Panel ID="listItemQtyPnl" runat="server" Visible="false" CssClass="span5 row-fluid">
+                <asp:LinkButton ID="listItemQty" runat="server" Text="Qty: " CssClass="btn btn-info span12" />
             </asp:Panel>
 
             <!-- TODO Boolean style -->
             <asp:LinkButton ID="listItemCompleted" runat="server" Visible="false"
-                CssClass="btn btn-info span6 offset1 list-item-completed-left" OnClick="listItemCompleted_Click">
+                CssClass="btn btn-info span6 offset1 left" OnClick="listItemCompleted_Click">
                 Completed?
             </asp:LinkButton>
             <asp:LinkButton ID="listItemCompletedCheckbox" runat="server" Visible="false"
-                CssClass="btn btn-info span4 list-item-completed-right" OnClick="listItemCompleted_Click">
-                <img id="listItemCompletedCheckboxImg" runat="server" src="~/styles/images/checkbox.png" alt="Not Completed" />
+                CssClass="btn btn-info span4 right" OnClick="listItemCompleted_Click">
+                <asp:Image ID="listItemCompletedCheckboxImg" runat="server"
+                    ImageUrl="~/styles/images/checkbox.png" AlternateText="Not Completed" />
+                <asp:Image ID="listItemCompletedCheckboxImgChecked" runat="server" Visible="false"
+                    ImageUrl="~/styles/images/checkbox-checked.png" AlternateText="Completed" />
             </asp:LinkButton>
         </div>
         <div class="span2 btn-group">

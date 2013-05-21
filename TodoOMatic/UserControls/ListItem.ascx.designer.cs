@@ -22,6 +22,15 @@ namespace TodoOMatic.UserControls {
         protected global::System.Web.UI.WebControls.Label listItemName;
         
         /// <summary>
+        /// listItemInCartPnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel listItemInCartPnl;
+        
+        /// <summary>
         /// listItemInCart control.
         /// </summary>
         /// <remarks>
@@ -46,7 +55,16 @@ namespace TodoOMatic.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage listItemInCartCheckboxImg;
+        protected global::System.Web.UI.WebControls.Image listItemInCartCheckboxImg;
+        
+        /// <summary>
+        /// listItemInCartCheckboxImgChecked control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image listItemInCartCheckboxImgChecked;
         
         /// <summary>
         /// listItemQtyPnl control.
@@ -91,7 +109,16 @@ namespace TodoOMatic.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage listItemCompletedCheckboxImg;
+        protected global::System.Web.UI.WebControls.Image listItemCompletedCheckboxImg;
+        
+        /// <summary>
+        /// listItemCompletedCheckboxImgChecked control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image listItemCompletedCheckboxImgChecked;
         
         /// <summary>
         /// listItemHide control.

@@ -4,10 +4,15 @@
 
 $(document).ready(listItemsReady);
 
-//var completedHover = function (hoveredEle, isLeftButton) {
-//    hoveredEle = $(hoveredEle);
-//    if (isLeftButton) {
-//        hoveredEle.next().
+//var hoverNeighborPrimary = function(button, hoverLeftNeighbor)
+//{
+//    button = $(button)
+//    var neighbor;
+//    if (hoverLeftNeighbor) {
+//        button.prev().addClass("btn:hover btn-primary:hover");
+//    }
+//    else {
+//        neighbor = button.next().addClass("btn:hover btn-primary:hover");
 //    }
 //}
 
