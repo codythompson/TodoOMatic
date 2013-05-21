@@ -58,5 +58,21 @@ namespace TodoOMaticDataAccess
 
             return dt;
         }
+
+        public int NonQuery(string query, params SqlParameter[] sqlParams)
+        {
+            try
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddRange(sqlParams);
+
+                return cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

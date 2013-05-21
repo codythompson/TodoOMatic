@@ -21,7 +21,7 @@
         <div class="span4 title title-left">
             <div class="row-fluid">
                 <div class="span6"><a href="../MyLists.aspx">My Lists</a></div>
-                <div class="span6"><a href="">option 2</a></div>
+                <div class="span6"><asp:Button runat="server" OnClick="Unnamed_Click" Text="Log Out" /></div>
             </div>
         </div>
         <div class="span4 title title-center">

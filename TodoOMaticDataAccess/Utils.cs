@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.SessionState;
 using System.Web.UI;
@@ -20,6 +22,13 @@ namespace TodoOMaticDataAccess
             Literal cssLink = new Literal();
             cssLink.Text = "<link rel=\"stylesheet\" href=\"" + url + "\" type=\"text/css\" />";
             page.Header.Controls.Add(cssLink);
+        }
+
+        public static void AddJSScript(Page page, string url)
+        {
+            Literal script = new Literal();
+            script.Text = "<script src=\"" + url + "\" type=\"text/javascript\"></script>";
+            page.Header.Controls.Add(script);
         }
 
         public static bool IsLocal(HttpRequest request)
@@ -58,6 +67,14 @@ namespace TodoOMaticDataAccess
                 page.Response.Redirect(redir);
             }
             return user;
+        }
+
+        public static bool IsAuthedForList(HttpRequest request, int userId, int listId)
+        {
+            DatabaseObject dbo = GetDBO(request);
+            DataTable authedLists = DataAccess.GetUsersListIds(dbo, userId);
+
+            return authedLists.AsEnumerable().Where(r => (int)r["list_id"] == listId).Any();
         }
     }
 }

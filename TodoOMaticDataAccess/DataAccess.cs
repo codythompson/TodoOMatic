@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace TodoOMaticDataAccess
 {
@@ -11,6 +12,20 @@ namespace TodoOMaticDataAccess
     {
         public const int StatusActiveId = 1;
 
+        public static DataTable GetUsersListIds(DatabaseObject dbo, int userId)
+        {
+            string query = @"use " + dbo.DBName + ";";
+            query += @"
+                select
+                list_id,
+                list_status_id
+                from user_list
+                where user_id = @userId;
+            ";
+
+            return dbo.Select(query, new SqlParameter("@userId", userId));
+        }
+        
         public static DataTable GetUsersLists(DatabaseObject dbo, int userId, int listStatusId)
         {
             string query = @"use " + dbo.DBName + ";";
@@ -34,6 +49,25 @@ namespace TodoOMaticDataAccess
             ";
             return dbo.Select(query, new SqlParameter("@listId", listId),
                 new SqlParameter("@itemStat", itemStatusId));
+        }
+
+        public static int ChangeItemName(DatabaseObject dbo, string newName, int itemId)
+        {
+            newName = HttpUtility.HtmlEncode(newName);
+
+            if (newName.Length > 255)
+            {
+                throw new Exception("The item name provided is too long.");
+            }
+
+            string query = @"use " + dbo.DBName + ";";
+            query += @"
+                update item
+                set item_name = @newName
+                where item_id = @itemId;
+            ";
+            return dbo.NonQuery(query, new SqlParameter("@newName", newName),
+                new SqlParameter("@itemId", itemId));
         }
     }
 }

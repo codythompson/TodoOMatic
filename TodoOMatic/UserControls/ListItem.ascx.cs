@@ -11,54 +11,71 @@ namespace TodoOMatic.UserControls
 {
     public partial class ListItem : System.Web.UI.UserControl
     {
-        //private TodoUser _user;
-
-        public TodoItem Item;
+        private const string ItemVSKey = "ItemId";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //_user = Utils.CheckAuthed(Page, false);
-            //if (!IsPostBack)
-            //{
-            //    Utils.AddCSSLink(Page, "/styles/UserControls/UserLists.css");
-
-            //    if (_user != null)
-            //    {
-            //        Populate();
-            //    }
-            //}
-
-            //if (_user == null)
-            //{
-            //    PopulateNotAuthed();
-            //}
         }
 
         public void Populate(DataRowView itemInfo)
         {
-            Item = new TodoItem(itemInfo);
+            TodoItem item = new TodoItem(itemInfo);
 
-            listItemName.Text = Item.Name;
+            ViewState[ItemVSKey] = item.ItemId;
 
-            switch (Item.Type)
+            listItemName.Text = item.Name;
+
+            switch (item.Type)
             {
                 case TodoItemType.Plain:
                     break;
                 case TodoItemType.Shopping:
                     listItemInCart.Visible = true;
+                    listItemInCartCheckbox.Visible = true;
                     listItemQtyPnl.Visible = true;
-                    listItemInCart.Text += Item.Completed.ToString();
-                    int qty = Item.Quantity;
+                    if (item.Completed)
+                    {
+                        listItemInCartCheckboxImg.Src = "~/styles/images/checkbox-checked.png";
+                        listItemInCartCheckboxImg.Alt = "In Cart";
+                    }
+                    int qty = item.Quantity;
                     if (qty <= 0)
                     {
                         qty = 1;
                     }
                     listItemQty.Text += qty.ToString();
                     break;
+                case TodoItemType.Boolean:
+                    listItemCompleted.Visible = true;
+                    listItemCompletedCheckbox.Visible = true;
+                    if (item.Completed)
+                    {
+                        listItemCompletedCheckboxImg.Src = "~/styles/images/checkbox-checked.png";
+                        listItemCompletedCheckboxImg.Alt = "Completed";
+                    }
+                    break;
             }
         }
 
-        protected void listItemPurchased_CheckedChanged(object sender, EventArgs e)
+        protected void listItemEditNameButton_Click(object sender, EventArgs e)
+        {
+            //TODO validation!
+            string newName = HttpUtility.HtmlEncode(listItemEditName.Text);
+
+            int itemId = (int)ViewState[ItemVSKey];
+
+            listItemName.Text = newName;
+
+            DatabaseObject dbo = Utils.GetDBO(Request);
+            DataAccess.ChangeItemName(dbo, newName, itemId);
+        }
+
+        protected void listItemCompleted_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void listItemDelete_Click(object sender, EventArgs e)
         {
 
         }

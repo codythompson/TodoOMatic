@@ -31,6 +31,24 @@ namespace TodoOMatic.UserControls {
         protected global::System.Web.UI.WebControls.LinkButton listItemInCart;
         
         /// <summary>
+        /// listItemInCartCheckbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton listItemInCartCheckbox;
+        
+        /// <summary>
+        /// listItemInCartCheckboxImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage listItemInCartCheckboxImg;
+        
+        /// <summary>
         /// listItemQtyPnl control.
         /// </summary>
         /// <remarks>
@@ -46,7 +64,34 @@ namespace TodoOMatic.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label listItemQty;
+        protected global::System.Web.UI.WebControls.LinkButton listItemQty;
+        
+        /// <summary>
+        /// listItemCompleted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton listItemCompleted;
+        
+        /// <summary>
+        /// listItemCompletedCheckbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton listItemCompletedCheckbox;
+        
+        /// <summary>
+        /// listItemCompletedCheckboxImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage listItemCompletedCheckboxImg;
         
         /// <summary>
         /// listItemHide control.
@@ -65,5 +110,23 @@ namespace TodoOMatic.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton listItemDelete;
+        
+        /// <summary>
+        /// listItemEditName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox listItemEditName;
+        
+        /// <summary>
+        /// listItemEditNameButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button listItemEditNameButton;
     }
 }

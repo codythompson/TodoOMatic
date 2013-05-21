@@ -13,5 +13,11 @@ namespace TodoOMatic.MasterPages
         {
 
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("/Default.aspx");
+        }
     }
 }

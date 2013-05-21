@@ -6,3 +6,15 @@
 .list-item {
     margin-bottom: 1%;
 }
+
+    .list-item .btn {
+        min-height: 34px;
+    }
+
+.list-item-completed-left {
+    border-right: 0px none;
+}
+
+.list-item-completed-right {
+    border-left: 0px none;
+}

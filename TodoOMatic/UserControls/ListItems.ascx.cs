@@ -14,16 +14,18 @@ namespace TodoOMatic.UserControls
         public const string ListIdQSKey = "listid";
 
         private TodoUser _user;
-
         private int _listId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //TODO Verify that the user actually owns the list!!!!!
             _user = Utils.CheckAuthed(Page, false);
+
+            Utils.AddCSSLink(Page, "/styles/UserControls/ListItems.css");
+            Utils.AddJSScript(Page, "/scripts/UserControls/ListItems.js");
+
             if (!IsPostBack)
             {
-                Utils.AddCSSLink(Page, "/styles/UserControls/ListItems.css");
-
                 if (_user != null)
                 {
                     _listId = -1;
@@ -35,7 +37,15 @@ namespace TodoOMatic.UserControls
 
                     if (listIdExists)
                     {
-                        Populate();
+                        bool isAuthedForList = Utils.IsAuthedForList(Request, _user.UserId, _listId);
+                        if (isAuthedForList)
+                        {
+                            Populate();
+                        }
+                        else
+                        {
+                            PopulateNotAuthedForList();
+                        }
                     }
                     else
                     {
@@ -43,11 +53,6 @@ namespace TodoOMatic.UserControls
                     }
                     
                 }
-            }
-
-            if (_user == null)
-            {
-                PopulateNotAuthed();
             }
         }
 
@@ -64,6 +69,10 @@ namespace TodoOMatic.UserControls
         }
 
         private void PopulateNoListId()
+        {
+        }
+
+        private void PopulateNotAuthedForList()
         {
         }
 

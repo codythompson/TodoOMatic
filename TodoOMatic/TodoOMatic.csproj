@@ -61,9 +61,12 @@
     <Content Include="MyLists.aspx" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\UserControls\ListItems.js" />
     <Content Include="styles\bootstrap-responsive.css" />
     <Content Include="styles\bootstrap.css" />
     <Content Include="styles\colors.css" />
+    <Content Include="styles\images\checkbox-checked.png" />
+    <Content Include="styles\images\checkbox.png" />
     <Content Include="styles\MasterPages\standardMaster.css" />
     <Content Include="styles\UserControls\ListItems.css" />
     <Content Include="styles\UserControls\UserLists.css" />
