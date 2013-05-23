@@ -15,6 +15,8 @@ namespace TodoOMatic.UserControls
         private const string ItemCompleteVSKey = "ItemComplete";
         private const string ItemTypeVSKey = "ItemType";
 
+        private const string ItemQtyPrefix = "Qty: ";
+
         protected void Page_Load(object sender, EventArgs e)
         {
         }
@@ -36,17 +38,18 @@ namespace TodoOMatic.UserControls
                 case TodoItemType.Shopping:
                     listItemInCartPnl.Visible = true;
                     listItemQtyPnl.Visible = true;
+                    listItemEditQtyPnl.Visible = true;
                     if (item.Completed)
                     {
                         listItemInCartCheckboxImg.Visible = false;
                         listItemInCartCheckboxImgChecked.Visible = true;
                     }
                     int qty = item.Quantity;
-                    if (qty <= 0)
+                    if (qty < 0)
                     {
                         qty = 1;
                     }
-                    listItemQty.Text += qty.ToString();
+                    listItemQty.Text = ItemQtyPrefix + qty;
                     break;
                 case TodoItemType.Boolean:
                     listItemCompleted.Visible = true;
@@ -62,7 +65,17 @@ namespace TodoOMatic.UserControls
 
         protected void listItemEditNameButton_Click(object sender, EventArgs e)
         {
-            //TODO validation!
+            if (string.IsNullOrEmpty(listItemEditName.Text))
+            {
+                listItemEditNameErrors.Visible = true;
+                listItemEditNameErrorRequired.Visible = true;
+                return;
+            }
+            else
+            {
+                listItemEditNameErrors.Visible = false;
+                listItemEditNameErrorRequired.Visible = false;
+            }
             string newName = HttpUtility.HtmlEncode(listItemEditName.Text);
 
             int itemId = (int)ViewState[ItemIdVSKey];
@@ -96,6 +109,27 @@ namespace TodoOMatic.UserControls
                     listItemCompletedCheckboxImgChecked.Visible = isComplete;
                     break;
             }
+        }
+
+        protected void listItemEditQtyButton_Click(object sender, EventArgs e)
+        {
+            int itemId = (int)ViewState[ItemIdVSKey];
+
+            int newQty;
+            bool isInt = int.TryParse(listItemEditQty.Text, out newQty);
+            // TODO use the max SQL value for int, not the c# int32 max
+            if (!isInt || newQty < 0 || newQty > Int32.MaxValue)
+            {
+                //TODO: display an error message in case the validators
+                //failed, which they did 
+                return;
+            }
+
+            DatabaseObject dbo = Utils.GetDBO(Request);
+            // TODO make sure it actually made it into the database
+            int rowsAffected = DataAccess.ChangeItemQty(dbo, itemId, newQty);
+
+            listItemQty.Text = ItemQtyPrefix + newQty;
         }
 
         protected void listItemDelete_Click(object sender, EventArgs e)

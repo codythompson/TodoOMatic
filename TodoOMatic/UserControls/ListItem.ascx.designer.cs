@@ -82,7 +82,7 @@ namespace TodoOMatic.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton listItemQty;
+        protected global::System.Web.UI.WebControls.Label listItemQty;
         
         /// <summary>
         /// listItemCompleted control.
@@ -155,5 +155,50 @@ namespace TodoOMatic.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button listItemEditNameButton;
+        
+        /// <summary>
+        /// listItemEditNameErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel listItemEditNameErrors;
+        
+        /// <summary>
+        /// listItemEditNameErrorRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel listItemEditNameErrorRequired;
+        
+        /// <summary>
+        /// listItemEditQtyPnl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel listItemEditQtyPnl;
+        
+        /// <summary>
+        /// listItemEditQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox listItemEditQty;
+        
+        /// <summary>
+        /// listItemEditQtyButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button listItemEditQtyButton;
     }
 }

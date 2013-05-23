@@ -1,5 +1,9 @@
 ﻿var listItemsReady = function () {
-    $('.list-item-edit').hide();
+    $.each($('.list-item-edit'), function (i, obj) {
+        if (!($(obj).children('.list-item-edit-error')[0])) {
+            $(obj).hide();
+        }
+    });
 }
 
 $(document).ready(listItemsReady);
@@ -16,6 +20,13 @@ $(document).ready(listItemsReady);
 //    }
 //}
 
+/*
+TODO convert all of these into one generalized function
+*/
 var showEditName = function (btnClicked) {
     $(btnClicked).parent().parent().children('.list-item-edit-name').slideToggle();
+}
+
+var showEditQty = function (btnClicked) {
+    $(btnClicked).parent().parent().parent().parent().children('.list-item-edit-qty').slideToggle();
 }

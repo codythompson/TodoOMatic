@@ -20,7 +20,8 @@
                 </asp:LinkButton>
             </asp:Panel>
             <asp:Panel ID="listItemQtyPnl" runat="server" Visible="false" CssClass="span5 row-fluid">
-                <asp:LinkButton ID="listItemQty" runat="server" Text="Qty: " CssClass="btn btn-info span12" />
+                <asp:Label ID="listItemQty" runat="server" CssClass="btn btn-info span12"
+                    onclick="showEditQty(this);" />
             </asp:Panel>
 
             <!-- TODO Boolean style -->
@@ -66,8 +67,22 @@
     </div>
     <div class="list-item-edit list-item-edit-name row-fluid input-append">
         <asp:TextBox ID="listItemEditName" runat="server" TextMode="SingleLine" MaxLength="255" 
-            placeholder="Enter the new item name (255 character max)" CssClass="span6" />
+            placeholder="Enter the new item name (255 character max)" CssClass="span6" 
+            ToolTip="Enter the new item name (255 character max)" />
         <asp:Button ID="listItemEditNameButton" runat="server" OnClick="listItemEditNameButton_Click"
             Text="Save" CssClass="btn btn-primary span2" />
+        <asp:Panel ID="listItemEditNameErrors" runat="server" Visible="false"
+            CssClass="list-item-edit-error">
+            <asp:Panel ID="listItemEditNameErrorRequired" runat="server" Visible="false">
+                Please enter a new name for this item.
+            </asp:Panel>
+        </asp:Panel>
     </div>
+    <asp:Panel ID="listItemEditQtyPnl" runat="server" Visible="false"
+        CssClass="list-item-edit list-item-edit-qty row-fluid input-append">
+        <asp:TextBox ID="listItemEditQty" runat="server" TextMode="SingleLine"
+            placeholder="Qty" CssClass="span1" ToolTip="Enter the new quantity" />
+        <asp:Button ID="listItemEditQtyButton" runat="server" OnClick="listItemEditQtyButton_Click"
+            Text="Save" CssClass="btn btn-primary span2" />
+    </asp:Panel>
 </div>

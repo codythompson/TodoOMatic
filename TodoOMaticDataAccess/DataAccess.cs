@@ -95,5 +95,17 @@ namespace TodoOMaticDataAccess
 
             return dbo.NonQuery(query, new SqlParameter("@itemId", itemId));
         }
+
+        public static int ChangeItemQty(DatabaseObject dbo, int itemId, int qty)
+        {
+            string query = @"use " + dbo.DBName + ";";
+            query += @"
+                update item
+                set item_qty = @itemQty
+                where item_id = @itemId;
+            ";
+            return dbo.NonQuery(query, new SqlParameter("@itemId", itemId),
+                new SqlParameter("@itemQty", qty));
+        }
     }
 }
